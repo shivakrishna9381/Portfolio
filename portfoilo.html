@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Afacad:wght@400;700&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="portfolio-wrapper">
+            <nav class="main-nav">
+                    <div class="logo-container">
+                        <!-- <div class="logo-text"><img src="KRIZZ.svg" alt=""> </div> -->
+                          <div class="mirror-text">Krizz</div>
+                    </div>
+                    <!-- Hamburger Menu Icon -->
+                    <button class="hamburger" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <!-- Mobile Menu -->
+                    <div class="mobile-menu">
+                        <button class="nav-button"><a href="#home">Home</a></button>
+                        <button class="nav-button"><a href="#about">About</a></button>
+                        <button class="nav-button"><a href="#skills">Skills</a></button>
+                        <button class="nav-button"><a href="#projects">Projects</a></button>
+                        <div class="contact-button">
+                            <button class="nav-button"><a href="#contact">Contact</a></button>
+                        </div>
+                    </div>
+                    <!-- Existing Desktop/Tablet Nav -->
+                    <div class="nav-links">
+                        <button class="nav-button"><a href="#home">Home</a></button>
+                        <button class="nav-button"><a href="#about">About</a></button>
+                        <button class="nav-button"><a href="#skills">Skills</a></button>
+                        <button class="nav-button"><a href="#projects">Projects</a></button>
+                        <div class="contact-button">
+                            <button class="nav-button"><a href="#contact">Contact</a></button>
+                        </div>
+                    </div>
+                </nav>
+            <section class="hero-section" id="home">               
+
+                <div class="hero-content">
+                    <div class="heromain-block">
+                        <div class="hero-text-block">
+                            <div class="hero-greeting">
+                                <span class="text-light-gray">Hello, Iam<br></span>
+                                <span class="text-teal-bold">Shiva Krishna Thogiti<br></span>
+                                <h2 class="typewriter">
+                                    <span id="typed-text"></span><span class="cursor">|</span>
+                                </h2>
+                            </div>
+                            <div class="hero-tagline">Code that Breathes. Designs that Speak.</div>
+                        </div>
+                        <div class="main-displayimg">
+                            <img src="Lightning.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="download-cv-button"><a href="shivakrishnathogiti.pdf" download="" class="btn">Download CV</a></button>
+                        <button class="hire-me-button"><a href="mailto:shivakrishnachinnu21@gmail.com?subject=Hiring%20Opportunity&body=Hi%20Shiva Krishna,%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity." class="btn">Hire Me</a></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section" id="about"> 
+                <div class="about-content-card">
+                    <img class="profile-image" alt="Profile Image" src="krishna.jpg">
+                    <div class="about-inner-card">
+                        <img src="Invertedcomma.svg" alt=""> 
+                        <h2>About Me</h2>
+                        <p>
+                            Blending creativity with code, I’m a design-driven technologist passionate about building intuitive, impactful digital experiences. With a solid technical foundation and a keen eye for aesthetics, I turn ideas into functional, pixel-perfect interfaces. Collaborative by nature and fueled by innovation, I thrive in dynamic teams where ideas spark action. I’m dedicated to continuous growth, shaping future-forward solutions that don’t just look good — they work brilliantly.
+                    </div>
+                </div>
+            </section>
+            <section class="skills-section" id="skills">
+                <div class="skills-heading">
+                    <h1>Skills</h1>
+                </div>
+                <div class="masking-skill">
+                    <h1>SKILLS</h1>
+                </div>
+                <div class="container">
+                    <div class="section">
+                        <div class="skill-head">
+                            <h2>Frontend</h2>
+                        </div>
+                        <div class="tech-list">
+                            <div class="tech-item" style="--delay: 0.2s"><i class="fab fa-html5"></i> HTML5</div>
+                            <div class="tech-item" style="--delay: 0.4s"><i class="fab fa-js"></i> Javascript</div>
+                            <div class="tech-item" style="--delay: 0.6s"><i class="fab fa-css3-alt"></i> CSS3</div>
+                            <div class="tech-item" style="--delay: 0.8s"><i class="fab fa-react"></i> React</div>
+                            <!-- <div class="tech-item" style="--delay: 1.0s"><i class="fas fa-paint-brush"></i> UI/UX</div> -->
+                            <div class="tech-item" style="--delay: 1.2s"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="skill-head">
+                            <h2>Backend</h2>
+                        </div>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fab fa-java"></i> Java</div>
+                            <div class="tech-item"><i class="fab fa-python"></i> Python</div>
+                            <div class="tech-item"><i class="fas fa-leaf"></i> Springboot</div>
+                            <div class="tech-item"><i class="fas fa-database"></i> Mysql</div>
+                            <div class="tech-item"><i class="fas fa-database"></i> Nosql</div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="skill-head">
+                            <h2>Designing</h2>
+                        </div>
+                        <div class="tech-list">
+
+                            <div class="tech-item"><i class="fab fa-figma"></i> Figma</div>
+
+                            <!-- Photoshop (represented by Adobe icon, as there's no dedicated Photoshop icon in FA) -->
+                            <div class="tech-item"><img src="PS.svg" alt=""> Photoshop</div>
+
+                            <!-- Inkscape (no official FA icon, use paintbrush as a close match) -->
+                            <div class="tech-item"><img src="INKSCAPE.svg" alt=""> Inkscape</div>
+
+                            <!-- Framer (has a dedicated icon in Font Awesome Pro, fallback: cube or code) -->
+                            <div class="tech-item"><img src="FRAMER.svg" alt=""> Framer</div> <!-- or use: <i class="fab fa-framer"></i> in Pro -->
+
+                            <!-- Canva (no FA icon, fallback: image icon or custom SVG) -->
+                            <div class="tech-item"><img src="CANVA.svg" alt=""> Canva</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="slider" id="projects">
+                <div class="carousel-heading">
+                    <h1>Projects</h1>
+                </div>
+                <div class="masking-projects">
+                    <h1>PROJECTS</h1>
+                </div>
+                <div class="carousel" id="carousel">
+                    <button class="nav-btn prev-btn" id="prev"><</button>
+                    <div class="card-container" id="card-container">
+                        <div class="card">
+                            <div class="image-slider">
+                                <div class="image-set">
+                                    <img src="Login.png" alt="Project Image">
+                                    <img src="signup.png" alt="Project Image">
+                                    <img src="Landingpage.png" alt="Project Image">
+                                    <img src="getstarted.png" alt="Project Image">
+                                </div>
+                                <div class="image-set">
+                                    <img src="Login.png" alt="Project Image">
+                                    <img src="signup.png" alt="Project Image">
+                                    <img src="Landingpage.png" alt="Project Image">
+                                    <img src="getstarted.png" alt="Project Image">
+                                </div>
+                            </div>
+                            <div class="proj-link">
+                                <a href="https://github.com/shivakrishna9381/Disease_prediction-web-apk" target="_blank">Disease Prediction <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image-slider">
+                                <div class="image-set">
+                                    <img src="food2.png" alt="Project Image">
+                                    <img src="food3.png" alt="Project Image">
+                                    <img src="food1.png" alt="Project Image">
+                                    <img src="food4.png" alt="Project Image">
+                                </div>
+                                <div class="image-set">
+                                    <img src="food2.png" alt="Project Image">
+                                    <img src="food3.png" alt="Project Image">
+                                    <img src="food1.png" alt="Project Image">
+                                    <img src="food4.png" alt="Project Image">
+                                </div>
+                            </div>
+                            <div class="proj-link">
+                                <a href="#" target="_blank">Food Order <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image-slider">
+                                <div class="image-set">
+                                    <img src="chatbot1.png" alt="Project Image">
+                                    <img src="chatbot2.png" alt="Project Image">
+                                </div>
+                                <div class="image-set">
+                                    <img src="chatbot1.png" alt="Project Image">
+                                    <img src="chatbot2.png" alt="Project Image">
+                                </div>
+                            </div>
+                            <div class="proj-link">
+                                <a href="https://github.com/shivakrishna9381/Implementation_of_chatbot_using_NLP.git" target="_blank">ChatBot <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn next-btn" id="next">></button>
+                </div>
+            </section>
+            <section class="education-section">
+                <div class="education-card">
+                    <div class="tab-content" id="education">
+                        <h3 class="course-head">Bachelor of Technology [CSE (AI & ML)]</h3>
+                        <p class="course-details">VAAGDEVI COLLEGE OF ENGINEERING<br>7.5 CGPA [2021-2025]</p>
+                        <h3 class="course-head">Board of Intermediate Education [MPC]</h3>
+                        <p class="course-details">SR JUNIOR COLLEGE HANAMKONDA<br>77% [2019-2021]</p>
+                        <h3 class="course-head">Board of Secondary Education</h3>
+                        <p class="course-details">OXFORD GRAMMAR HIGH SCHOOL<br>92% [2019]</p>
+                    </div>
+
+                    <div class="tab-content" id="traits" style="display: none;">
+                        <button class="skill-but">Adaptability</button>
+                        <button class="skill-but">Problem Solving</button>
+                        <button class="skill-but">Time Management</button>
+                        <button class="skill-but">Creative Thinking</button>
+                    </div>
+
+                    <div class="tab-content" id="hobbies" style="display: none;">
+                        <button class="skill-but">Photography</button>
+                        <button class="skill-but">Graphic design</button>
+                        <button class="skill-but">Pencil Sketching</button>
+                        <button class="skill-but">Playing Cricket</button>
+                    </div>
+                    <div class="about-tabs-container">
+                        <div class="tabs-list">
+                            <button class="tab-trigger active" data-tab="education">Education</button>
+                            <button class="tab-trigger" data-tab="traits">Traits</button>
+                            <button class="tab-trigger" data-tab="hobbies">Hobbies</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="accordian-section">
+                <h1>Certification & Achivements</h1>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <input type="checkbox" id="item-1">
+                        <label class="accordion-header" for="item-1" onclick="toggleAccordion(this)">Certifications</label>
+                        <div class="accordion-content">
+                            <ul>
+                            <li>Artificial Intelligence with Machine Learning by- ORACLE</li>
+                            <li>Certified in MySQL-SQL and Database Testing through INFOSYS SPRINGBOARD.</li>
+                            <li>Certificate of Completion for AWS Academy Cloud Foundations.</li>
+                            <li>TCS ion Career Edge Young Professional.</li>
+                            </ul>
+                        </div>
+                        </div>
+
+                        <div class="accordion-item">
+                        <input type="checkbox" id="item-2">
+                        <label class="accordion-header" for="item-2" onclick="toggleAccordion(this)">Achievements</label>
+                        <div class="accordion-content">
+                            <ul>
+                            <li>Presented project on ’Importance of Alkaline Water’ at District Level National Children’s Science Congress (NCSC) 2016</li>
+                            <li>Awarded Certificate of Excellence for securing 2nd position in EUNOIA 2K18 at Telangana’s Biggest Rural Technical Festival, ANTAHPRAGNYA 2K18, RGUKT Basar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="services-section">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-img">
+                                <img src="Group-2015.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Web Design & Development</h3>
+                            <p class="service-description">Custom-Built Landing Pages,
+                                Portfolio Website, Business Websites
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-img">
+                                <img src="Group-2016.svg" alt="">
+                            </div>
+                            <h3 class="service-title">UI/UX [App & Web Interfaces]</h3>
+                            <p class="service-description">User-friendly, modern interfaces for mobile Applications Clean, responsive UI for personal,
+                                business, and product websites
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-img">
+                                <img src="Group-2017.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Brand Design[Logos, Brand kits]</h3>
+                            <p class="service-description">Color palette, typography guide, logo variations,usage guidelines Social media post templates,
+                                business cards, letterhead.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-img">
+                                <img src="Group-2018.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Graphic Designing</h3>
+                            <p class="service-description">Posters Designing, Banners, Thumbnails,Social Media Creatives, Marketing Ads
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section class="work-section">
+                <div class="cardContainer">
+                    <div class="card1 topLeftCard"></div>
+                    <div class="card1 topRightCard"></div>
+                    <div class="card1 centerCard">WORK</div>
+                    <div class="card1 bottomLeftCard"></div>
+                    <div class="card1 bottomRightCard"></div>
+                </div>
+            </section> -->
+
+            <section class="contact-section" id="contact">
+                <h1>Get in Touch with Us</h1>
+                <p class="subtitle">Have questions or need AI solutions? Let us know by filling out the form, and we'll be in touch!</p>
+
+                <div class="contact-info">
+                <div class="info-box">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-mail</h3>
+                    <p>shivakrishnachinnu21@gmail.com</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+91 9318333923</p>
+                </div>
+                </div>
+
+                <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone" required>
+                </div>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
+                </form>
+
+            </section>
+
+            <section class="Footer">
+                <div class="footer-Head">
+                    <ul>
+                        <a href="#home"><li>Home</li></a>
+                        <a href="#about"><li>About</li></a>
+                        <a href="#skills"><li>skills</li></a>
+                        <a href="#projects"><li>Projects</li></a>
+                        <a href="#contact"><li>Contact</li></a>
+                    </ul>
+                </div>
+                <div class="footer-body">
+                    <div class="social-icons">
+                        <a href=""><img src="./Facebook.png" alt=""></a>
+                    </div>
+                    <div class="social-icons">
+                        <a href=""><img src="./Twitter.png" alt=""></a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/designerkrizz?igsh=MWRiOGYzcWlqNm96OA=="><img src="./Instagram.png" alt=""></a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/shiva-krishna-2-/" target="_blank"><img src="./LInkedin.png" alt=""></a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://github.com/shivakrishna9381"><img src="./Github.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="footer-footer">  
+                    <p> <span class="motivate">INNOVATE INSPIRE CREATE CONQUER</span> <br> <br> <br>© 2025 <span>SHIVA KRISHNA THOGITI</span> All Rights Reserved
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // Tab functionality
+    const tabButtons = document.querySelectorAll(".tab-trigger");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            tabContents.forEach(content => {
+                content.style.display = "none";
+                content.classList.remove('animate-buttons');
+            });
+
+            button.classList.add("active");
+            const tabId = button.getAttribute("data-tab");
+            const activeContent = document.getElementById(tabId);
+            activeContent.style.display = "flex";
+
+            if (tabId === 'traits' || tabId === 'hobbies') {
+                console.log(`Animating buttons in tab: ${tabId}`);
+                const buttons = activeContent.querySelectorAll('.skill-but');
+                buttons.forEach((btn, index) => {
+                    btn.style.setProperty('--index', index);
+                });
+                activeContent.offsetHeight; // Trigger reflow
+                activeContent.classList.add('animate-buttons');
+            }
+        });
+
+        if (button.classList.contains('active')) {
+            const tabId = button.getAttribute("data-tab");
+            const activeContent = document.getElementById(tabId);
+            activeContent.style.display = "flex";
+        }
+    });
+
+    // Carousel functionality
+    const container = document.getElementById('card-container');
+    const cards = container.children;
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let currentIndex = 0;
+
+    function updateCards() {
+        const total = cards.length;
+        for (let i = 0; i < total; i++) {
+            cards[i].className = 'card';
+        }
+        cards[(currentIndex + total - 1) % total].classList.add('left');
+        cards[currentIndex % total].classList.add('center');
+        cards[(currentIndex + 1) % total].classList.add('right');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCards();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCards();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    updateCards();
+
+    // Intersection Observer for scroll-based animations
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                console.log(`Element: ${entry.target.className}, IsIntersecting: ${entry.isIntersecting}, IntersectionRatio: ${entry.intersectionRatio}`);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing after animation
+                }
+            });
+        },
+        {
+            threshold: 0.1, // Adjusted for earlier trigger
+            rootMargin: '-50px 0px -50px 0px'
+        }
+    );
+
+    // Define sections and elements to observe
+    const sections = [
+        { selector: '.hero-content', stagger: false },
+        { selector: '.about-content-card', stagger: false },
+        { selector: '.skills-section .tech-item', stagger: true },
+        { selector: '.carousel-heading', stagger: false },
+        { selector: '.education-card', stagger: false },
+        { selector: '.accordian-section', stagger: false },
+        { selector: '.accordion-item', stagger: true },
+        { selector: '.service-card', stagger: true },
+        { selector: '.card1', stagger: true },
+        { selector: '.centerCard', stagger: false },
+        { selector: '.contact-form-container', stagger: false },
+        { selector: '.social-icons', stagger: true }
+    ];
+
+    // Function to check if element is below the viewport
+    const isBelowViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        return rect.top > window.innerHeight;
+    };
+
+    // Function to observe elements
+    const observeElements = () => {
+        sections.forEach(({ selector, stagger }) => {
+            const elements = document.querySelectorAll(selector);
+            if (elements.length === 0) {
+                console.warn(`No elements found for selector: ${selector}`);
+                return;
+            }
+            elements.forEach((element, index) => {
+                if (isBelowViewport(element) || window.scrollY > 0) {
+                    if (stagger) {
+                        element.style.setProperty('--index', index + 1);
+                        element.style.setProperty('--delay', `${index * 0.2}s`);
+                    }
+                    observer.observe(element);
+                    console.log(`Observing: ${selector}, Index: ${index}, BelowViewport: ${isBelowViewport(element)}`);
+                }
+            });
+        });
+    };
+
+    // Delay observer initialization
+    setTimeout(() => {
+        observeElements();
+        let hasScrolled = false;
+        const handleScroll = () => {
+            if (!hasScrolled) {
+                hasScrolled = true;
+                observeElements();
+                window.removeEventListener('scroll', handleScroll);
+            }
+        };
+
+        if (window.scrollY > 0) {
+            observeElements();
+        } else {
+            window.addEventListener('scroll', handleScroll);
+        }
+    }, 100);
+
+    // Typewriter effect
+    const roles = [
+        "Frontend Developer",
+        "UI/UX Designer",
+        "Machine Learning Enigneer"
+    ];
+
+    const typedText = document.getElementById("typed-text");
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+        typedText.textContent = currentRole.substring(0, charIndex);
+        let typingSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting) {
+            if (charIndex < currentRole.length) {
+                charIndex++;
+            } else {
+                isDeleting = true;
+                typingSpeed = 1200;
+            }
+        } else {
+            if (charIndex > 0) {
+                charIndex--;
+            } else {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 400;
+            }
+        }
+
+        setTimeout(type, typingSpeed);
+    }
+
+    type();
+});
+function toggleAccordion(label) {
+  const content = label.nextElementSibling;
+  content.classList.toggle('show');
+}
+
+</script>
+</html>
