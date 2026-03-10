@@ -73,11 +73,11 @@
     margin: 0;
     padding: 0;
     scrollbar-width: none;
-    cursor: url('Vectorcursorfinal.svg'), default;
+    cursor: url('public/assets/Vectorcursorfinal.svg'), default;
 }
 
 a, button {
-    cursor: url('pointercursorfinal.svg'), pointer;
+    cursor: url('public/assets/pointercursorfinal.svg'), pointer;
 }
 
 body {
@@ -255,7 +255,7 @@ textarea:focus-visible {
     position: relative;
     width: 100%;
     height: auto;
-    background-image: url('gradientbg.png');
+    background-image: url('public/assets/gradientbg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -407,7 +407,7 @@ textarea:focus-visible {
     height: 20px;
     background: none;
     border: none;
-    cursor: url('pointercursorfinal.svg'), pointer;
+    cursor: url('public/assets/pointercursorfinal.svg'), pointer;
     z-index: 1001;
 }
 
@@ -1580,7 +1580,7 @@ textarea:focus-visible {
 }
 
 .Footer{
-    background-image: url('footerbackground.png');
+    background-image: url('public/assets/footerbackground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position:130px;
@@ -1655,7 +1655,7 @@ textarea:focus-visible {
     color: white;
     text-align: center;
     margin: 80px 0;
-    background-image: url(footerbg.png);
+    background-image: url(public/assets/footerbg.png);
 }
 
 .footer-footer span {

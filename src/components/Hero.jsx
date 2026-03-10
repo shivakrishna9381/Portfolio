@@ -60,7 +60,7 @@ export default function Hero() {
         <div className={`absolute top-1/3 left-0 w-[300px] h-[300px] rounded-full blur-3xl ${isDark ? 'bg-[#7C3AED]/4' : 'bg-[#EDE9FE]/60'}`} />
       </div>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-2 gap-12 items-center">
         {/* Left content */}
         <div>
           <motion.div
