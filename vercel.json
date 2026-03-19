@@ -4,5 +4,6 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "nodejs": "20.x"
+  "nodejs": "18.x",
+  "installCommand": "npm ci"
 }
