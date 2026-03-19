@@ -18,7 +18,7 @@ export default function App() {
   const { isDark } = useTheme()
 
   return (
-    <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${isDark ? 'bg-[#0F172A]' : 'bg-[#F8FAFC]'}`}>
+    <div className={`min-h-screen overflow-x-clip transition-colors duration-300 ${isDark ? 'bg-[#0F172A]' : 'bg-[#F8FAFC]'}`}>
       <Navbar />
       <Hero />
       <ScrollingText />
