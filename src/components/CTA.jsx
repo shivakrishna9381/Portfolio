@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
 export default function CTA() {
@@ -9,66 +9,179 @@ export default function CTA() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} className="py-32 lg:py-40">
+    <section ref={ref} className="py-24 lg:py-40 relative overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+        {/* Main CTA Card */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="relative rounded-3xl overflow-hidden p-12 md:p-20 text-center"
+          transition={{ duration: 0.8 }}
+          className="relative w-11/12 mx-auto rounded-4xl overflow-hidden"
+          style={{ aspectRatio: '16/9' }}
         >
-          {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED] via-[#6D28D9] to-[#5B21B6]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(167,139,250,0.3),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(91,33,182,0.4),transparent_50%)]" />
+          {/* Gradient Background - Purple */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#9333EA] via-[#7E22CE] to-[#5B21B6]" />
+          
+          {/* Animated 3D Geometric Shapes - Bottom Right */}
+          <motion.div
+            animate={{
+              x: [0, 40, -30, 0],
+              y: [0, -50, 40, 0],
+              rotate: [0, 15, -10, 0],
+              scale: [1, 1.1, 0.95, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-br from-[#C084FC]/30 to-[#A855F7]/20 rounded-3xl blur-3xl"
+            style={{ transform: 'rotateX(45deg) rotateY(45deg)' }}
+          />
 
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }} />
+          {/* Animated Geometric - Top Right */}
+          <motion.div
+            animate={{
+              x: [0, -50, 30, 0],
+              y: [0, 40, -30, 0],
+              rotate: [0, -20, 15, 0],
+              scale: [1, 0.95, 1.1, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.5,
+            }}
+            className="absolute -top-24 -right-24 w-80 h-80 bg-gradient-to-br from-[#A855F7]/25 to-[#7E22CE]/15 rounded-3xl blur-3xl"
+            style={{ transform: 'rotateX(-30deg) rotateY(30deg)' }}
+          />
 
-          <div className="relative z-10">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Sparkles className="mx-auto mb-6 text-white/70" size={40} />
-            </motion.div>
+          {/* Animated Grid Pattern */}
+          <motion.div
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%'],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'linear-gradient(45deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(-45deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+              backgroundSize: '60px 60px',
+              backgroundPosition: '0% 0%',
+            }}
+          />
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-heading)] text-white mb-6 leading-tight"
-            >
-              Let's Build Something{' '}
-              <span className="text-white/90">Amazing Together</span>
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-white/70 max-w-lg mx-auto mb-10"
-            >
-              Ready to bring your idea to life? Let's collaborate and create something extraordinary.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl text-[#7C3AED] font-bold bg-white hover:bg-gray-100 transition-all duration-300 shadow-xl shadow-black/20 hover:scale-105"
+          {/* Content Container - Two Column Layout */}
+          <div className="relative z-10 h-full flex items-center px-12 md:px-16">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              
+              {/* Left Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.2 }}
               >
-                Start Your Project
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </motion.div>
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-md">
+                  <div className="w-2 h-2 bg-purple-300 rounded-full animate-pulse" />
+                  <span className="text-sm font-semibold text-white">Get Started</span>
+                </div>
+
+                {/* Heading */}
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  Let's Build Something{' '}
+                  <span className="bg-gradient-to-r from-purple-200 to-purple-300 bg-clip-text text-transparent">
+                    Amazing Together
+                  </span>
+                </h2>
+
+                {/* Description */}
+                <p className="text-lg text-purple-100 mb-10 leading-relaxed">
+                  Ready to bring your idea to life? Let's collaborate and create something extraordinary.
+                </p>
+
+                {/* CTA Button */}
+                <motion.a
+                  href="#contact"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-white bg-purple-600 hover:bg-purple-700 transition-all duration-300 shadow-2xl"
+                >
+                  Start Your Project
+                  <motion.div
+                    animate={{ x: [0, 6, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight size={22} />
+                  </motion.div>
+                </motion.a>
+              </motion.div>
+
+              {/* Right Side - Animated Card Preview */}
+              <motion.div
+                initial={{ opacity: 0, x: 40, rotateY: 20 }}
+                animate={inView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:block perspective"
+              >
+                <motion.div
+                  animate={{
+                    y: [-10, 10, -10],
+                    rotateX: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="bg-white rounded-3xl p-8 shadow-2xl"
+                >
+                  {/* Card Header */}
+                  <div className="flex justify-between items-center mb-8">
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Portfolio</p>
+                      <h3 className="text-xl font-bold text-gray-900">Your Project</h3>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">→</span>
+                    </div>
+                  </div>
+
+                  {/* Card Stats */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Progress</span>
+                      <span className="text-2xl font-bold text-gray-900">100%</span>
+                    </div>
+                    <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                      <motion.div
+                        animate={{ width: ['0%', '100%', '100%'] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="h-full bg-gradient-to-r from-purple-400 to-purple-600"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-3 gap-3 mt-8">
+                    <button className="py-3 px-4 rounded-xl bg-purple-100 text-purple-600 font-semibold text-sm hover:bg-purple-200 transition">
+                      Preview
+                    </button>
+                    <button className="py-3 px-4 rounded-xl bg-gray-100 text-gray-700 font-semibold text-sm hover:bg-gray-200 transition">
+                      Details
+                    </button>
+                    <button className="py-3 px-4 rounded-xl bg-gray-100 text-gray-700 font-semibold text-sm hover:bg-gray-200 transition">
+                      Share
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+            </div>
           </div>
         </motion.div>
       </div>

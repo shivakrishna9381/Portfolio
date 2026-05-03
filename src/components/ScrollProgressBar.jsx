@@ -32,25 +32,15 @@ export default function ScrollProgressBar() {
     })
   }
 
-  return (
-    <div className="fixed right-6 bottom-6 z-50 flex flex-col items-center gap-2">
-      {/* Progress Bar Background */}
-      <div
-        className={`w-1 rounded-full transition-colors duration-300 ${
-          isDark ? 'bg-gray-700' : 'bg-gray-300'
-        }`}
-        style={{ height: '120px' }}
-      >
-        {/* Progress Fill */}
-        <motion.div
-          className="w-1 rounded-full bg-gradient-to-t from-[#7C3AED] to-[#A78BFA]"
-          style={{ height: `${scrollProgress}%` }}
-          transition={{ duration: 0.2 }}
-        />
-      </div>
+  // Circle progress calculation
+  const radius = 22
+  const circumference = 2 * Math.PI * radius
+  const strokeDashoffset = circumference - (scrollProgress / 100) * circumference
 
-      {/* Back to Top Button */}
-      <motion.button
+  return (
+    <>
+      {/* Back to Top Button with Progress Border - Bottom Right */}
+      <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={
           isVisible
@@ -63,22 +53,64 @@ export default function ScrollProgressBar() {
           stiffness: 200,
           damping: 20,
         }}
-        onClick={scrollToTop}
-        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer ${
-          isDark
-            ? 'bg-[#7C3AED]/20 hover:bg-[#7C3AED]/40 border border-[#7C3AED]/50 hover:border-[#7C3AED] shadow-lg shadow-[#7C3AED]/20'
-            : 'bg-[#EDE9FE] hover:bg-[#DDD6FE] border border-[#7C3AED]/30 hover:border-[#7C3AED] shadow-lg shadow-[#7C3AED]/10'
-        }`}
-        whileHover={{ y: -4 }}
-        whileTap={{ scale: 0.95 }}
+        className="fixed right-6 bottom-6 z-50"
       >
-        <ArrowUp
-          size={20}
-          className={`transition-colors duration-300 ${
-            isDark ? 'text-[#A78BFA] group-hover:text-white' : 'text-[#7C3AED] group-hover:text-[#5B21B6]'
-          }`}
-        />
-      </motion.button>
-    </div>
+        <div className="relative w-16 h-16 flex items-center justify-center">
+          {/* Background Circle Ring */}
+          <svg className="absolute inset-0 w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+            <circle
+              cx="32"
+              cy="32"
+              r={radius}
+              fill="none"
+              className={`transition-colors duration-300 ${
+                isDark ? 'stroke-gray-700' : 'stroke-gray-300'
+              }`}
+              strokeWidth="2"
+            />
+          </svg>
+
+          {/* Progress Circle Ring */}
+          <svg className="absolute inset-0 w-16 h-16 -rotate-90" viewBox="0 0 64 64">
+            <motion.circle
+              cx="32"
+              cy="32"
+              r={radius}
+              fill="none"
+              stroke="url(#gradientRing)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray={circumference}
+              strokeDashoffset={strokeDashoffset}
+              transition={{ duration: 0.3 }}
+            />
+            <defs>
+              <linearGradient id="gradientRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#7C3AED" />
+                <stop offset="100%" stopColor="#A78BFA" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Button */}
+          <motion.button
+            onClick={scrollToTop}
+            className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer flex-shrink-0 ${
+              isDark
+                ? 'bg-[#7C3AED]/40 hover:bg-[#7C3AED]/60 hover:border-[#A78BFA] shadow-lg shadow-[#7C3AED]/40'
+                : 'bg-[#EDE9FE] hover:bg-[#DDD6FE] shadow-lg shadow-[#7C3AED]/20'
+            }`}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ArrowUp
+              size={20}
+              className={`transition-colors duration-300 ${
+                isDark ? 'text-[#A78BFA] group-hover:text-white' : 'text-[#7C3AED] group-hover:text-[#5B21B6]'
+              }`}
+            />
+          </motion.button>
+        </div>
+      </motion.div>
+    </>
   )
 }

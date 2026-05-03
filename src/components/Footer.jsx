@@ -159,24 +159,21 @@ export default function Footer() {
           </div>
 
           {/* Large watermark name with glass/shine effect */}
-          <div className="relative h-24 md:h-32 lg:h-40 mb-8 pointer-events-none select-none">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-0 leading-[0.85]">
-              {['SHIVA', 'KRISHNA'].map((word) => (
-                <span
-                  key={word}
-                  className={`block text-5xl md:text-7xl lg:text-[7rem] font-bold font-[family-name:var(--font-heading)] tracking-tight watermark-shine ${
-                    isDark ? 'watermark-shine-dark' : 'watermark-shine-light'
-                  }`}
-                >
-                  {word}
-                </span>
-              ))}
+          <div className="relative h-12 md:h-16 lg:h-20 mb-8 pointer-events-none select-none">
+            <div className="absolute inset-0 flex items-center justify-center gap-2 leading-[0.85]">
+              <span
+                className={`block text-2xl md:text-3xl lg:text-4xl font-bold font-[family-name:var(--font-heading)] tracking-tight watermark-shine ${
+                  isDark ? 'watermark-shine-dark' : 'watermark-shine-light'
+                }`}
+              >
+                SHIVA KRISHNA
+              </span>
             </div>
           </div>
 
           {/* Bottom bar: copyright + legal links */}
           <div
-            className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t ${
+            className={`flex flex-col sm:flex-row items-cente gap-4 pt-6 border-t ${
               isDark ? 'border-white/[0.06]' : 'border-gray-100'
             }`}
           >
@@ -189,25 +186,6 @@ export default function Footer() {
               <Heart size={12} className="text-[#7C3AED] fill-[#7C3AED]" />
               All Rights Reserved.
             </p>
-
-            <div className="flex items-center gap-5">
-              <a
-                href="#"
-                className={`text-xs transition-colors ${
-                  isDark ? 'text-gray-500 hover:text-gray-300' : 'text-gray-400 hover:text-gray-600'
-                }`}
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className={`text-xs transition-colors ${
-                  isDark ? 'text-gray-500 hover:text-gray-300' : 'text-gray-400 hover:text-gray-600'
-                }`}
-              >
-                Privacy Policy
-              </a>
-            </div>
           </div>
         </div>
       </div>

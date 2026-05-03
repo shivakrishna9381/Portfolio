@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark theme colors (default) */
   --color-dark-bg: #0F172A;
   --color-dark-card: #1E293B;
   --color-dark-card-hover: #334155;
@@ -19,9 +18,6 @@
   --color-text-dark-secondary: #475569;
   --color-border-dark: #1E293B;
   --color-border-light: #E2E8F0;
-
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
 }
 
 /* ==================== BASE STYLES (in @layer so Tailwind utilities can override) ==================== */
@@ -35,7 +31,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-family: var(--font-body);
+    font-family: 'Inter', sans-serif;
   }
 
   body {
@@ -242,6 +238,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Playful font for emojis and fun content */
+  .font-playful {
+    font-family: var(--font-playful);
   }
 
   /* Watermark text with shine animation */

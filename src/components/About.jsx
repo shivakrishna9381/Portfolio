@@ -34,16 +34,14 @@ export default function About() {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative group"
+            className="relative flex justify-center"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#7C3AED]/20 to-[#A78BFA]/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-60" />
-            <div className={`relative overflow-hidden rounded-2xl ${isDark ? 'border border-white/10' : 'border border-gray-200'}`}>
+            <div className={`relative overflow-hidden rounded-3xl flex items-center justify-center backdrop-blur-sm ${isDark ? 'bg-gradient-to-br from-[#1E293B]/60 to-[#0F172A]/40 border border-[#7C3AED]/20 shadow-2xl shadow-[#7C3AED]/10' : 'bg-gradient-to-br from-white/80 to-gray-50/80 border border-[#7C3AED]/10 shadow-2xl shadow-[#7C3AED]/5'}`}>
               <img
-                src="/krishna.jpg"
+                src="/assets/Facecardcharacter.svg"
                 alt="Shiva Krishna Thogiti"
-                className="w-full h-[450px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                className="h-[320px] w-auto object-contain p-8"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent" />
             </div>
           </motion.div>
 
@@ -60,9 +58,7 @@ export default function About() {
             <p className={`text-lg leading-relaxed mb-6 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
               Blending creativity with code, I'm a design-driven technologist passionate about building intuitive, impactful digital experiences. With a solid technical foundation and a keen eye for aesthetics, I turn ideas into functional, pixel-perfect interfaces.
             </p>
-            <p className={`text-lg leading-relaxed mb-8 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Collaborative by nature and fueled by innovation, I thrive in dynamic teams where ideas spark action. Dedicated to continuous growth, shaping future-forward solutions that don't just look good — they work brilliantly.
-            </p>
+            
 
             {/* Info grid */}
             <div className="grid grid-cols-2 gap-4">
