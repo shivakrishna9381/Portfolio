@@ -1,22 +1,32 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Mail, Phone, Send, MapPin } from 'lucide-react'
+import { Mail, Send, MapPin } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
 export default function Contact() {
   const { isDark } = useTheme()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
-  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+  const [formState, setFormState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  })
 
   const handleChange = (e) => {
-    setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent('Portfolio Contact from ' + formState.firstName)
-    const body = encodeURIComponent(`Name: ${formState.firstName} ${formState.lastName}\nEmail: ${formState.email}\nPhone: ${formState.phone}\n\nMessage:\n${formState.message}`)
+    const subject = encodeURIComponent(
+      'Portfolio Contact from ' + formState.firstName
+    )
+    const body = encodeURIComponent(
+      `Name: ${formState.firstName} ${formState.lastName}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
+    )
+
     window.location.href = `mailto:shivakrishnachinnu21@gmail.com?subject=${subject}&body=${body}`
   }
 
@@ -37,19 +47,25 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-20 lg:mb-24"
         >
-          <span className={`text-sm font-semibold tracking-widest uppercase ${isDark ? 'text-[#A78BFA]' : 'text-[#7C3AED]'}`}>
-            Get in touch
-          </span>
-          <h2 className={`text-4xl md:text-5xl font-bold font-[family-name:var(--font-heading)] mt-3 ${isDark ? 'text-white' : 'text-[#0F172A]'}`}>
+          <h2
+            className={`text-4xl md:text-5xl font-bold font-[family-name:var(--font-heading)] mt-3 ${
+              isDark ? 'text-white' : 'text-[#0F172A]'
+            }`}
+          >
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className={`text-lg mt-4 max-w-md mx-auto ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-            Have questions or need solutions? Fill out the form and I'll get back to you!
+
+          <p
+            className={`text-lg mt-4 max-w-md mx-auto ${
+              isDark ? 'text-gray-400' : 'text-gray-500'
+            }`}
+          >
+            Have questions or need solutions? Fill out the form and I'll get
+            back to you!
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10 xl:gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -57,9 +73,18 @@ export default function Contact() {
             className="space-y-6"
           >
             {[
-              { icon: Mail, label: 'Email', value: 'shivakrishnachinnu21@gmail.com', href: 'mailto:shivakrishnachinnu21@gmail.com' },
-              { icon: Phone, label: 'Phone', value: '+91 9318333923', href: 'tel:+919318333923' },
-              { icon: MapPin, label: 'Location', value: 'Telangana, India', href: null },
+              {
+                icon: Mail,
+                label: 'Email',
+                value: 'shivakrishnachinnu21@gmail.com',
+                href: 'mailto:shivakrishnachinnu21@gmail.com',
+              },
+              {
+                icon: MapPin,
+                label: 'Location',
+                value: 'Telangana, India',
+                href: null,
+              },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -67,21 +92,46 @@ export default function Contact() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                 className={`group p-5 rounded-2xl transition-all duration-300 ${
-                  isDark ? 'bg-[#1E293B]/60 border border-white/5 hover:border-[#7C3AED]/20' : 'bg-white border border-gray-100 hover:border-[#7C3AED]/15 shadow-sm'
+                  isDark
+                    ? 'bg-[#1E293B]/60 border border-white/5 hover:border-[#7C3AED]/20'
+                    : 'bg-white border border-gray-100 hover:border-[#7C3AED]/15 shadow-sm'
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${isDark ? 'bg-[#7C3AED]/10' : 'bg-[#EDE9FE]'}`}>
+                  <div
+                    className={`w-11 h-11 rounded-full flex items-center justify-center ${
+                      isDark ? 'bg-[#7C3AED]/10' : 'bg-[#EDE9FE]'
+                    }`}
+                  >
                     <item.icon className="text-[#7C3AED]" size={20} />
                   </div>
+
                   <div>
-                    <p className={`text-xs font-medium mb-0.5 ${isDark ? 'text-[#A78BFA]' : 'text-[#7C3AED]'}`}>{item.label}</p>
+                    <p
+                      className={`text-xs font-medium mb-0.5 ${
+                        isDark ? 'text-[#A78BFA]' : 'text-[#7C3AED]'
+                      }`}
+                    >
+                      {item.label}
+                    </p>
+
                     {item.href ? (
-                      <a href={item.href} className={`text-sm font-medium hover:underline ${isDark ? 'text-white' : 'text-gray-800'}`}>
+                      <a
+                        href={item.href}
+                        className={`text-sm font-medium hover:underline ${
+                          isDark ? 'text-white' : 'text-gray-800'
+                        }`}
+                      >
                         {item.value}
                       </a>
                     ) : (
-                      <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-gray-800'}`}>{item.value}</p>
+                      <p
+                        className={`text-sm font-medium ${
+                          isDark ? 'text-white' : 'text-gray-800'
+                        }`}
+                      >
+                        {item.value}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -89,24 +139,51 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          {/* Contact Form */}
           <motion.form
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             className={`md:col-span-2 p-6 md:p-8 rounded-2xl ${
-              isDark ? 'bg-[#1E293B]/60 border border-white/5' : 'bg-white border border-gray-100 shadow-xl shadow-gray-200/30'
+              isDark
+                ? 'bg-[#1E293B]/60 border border-white/5'
+                : 'bg-white border border-gray-100 shadow-xl shadow-gray-200/30'
             }`}
           >
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
-              <input name="firstName" value={formState.firstName} onChange={handleChange} type="text" placeholder="First Name" required className={inputClass} />
-              <input name="lastName" value={formState.lastName} onChange={handleChange} type="text" placeholder="Last Name" required className={inputClass} />
+              <input
+                name="firstName"
+                value={formState.firstName}
+                onChange={handleChange}
+                type="text"
+                placeholder="First Name"
+                required
+                className={inputClass}
+              />
+
+              <input
+                name="lastName"
+                value={formState.lastName}
+                onChange={handleChange}
+                type="text"
+                placeholder="Last Name"
+                required
+                className={inputClass}
+              />
             </div>
-            <div className="grid sm:grid-cols-2 gap-4 mb-4">
-              <input name="email" value={formState.email} onChange={handleChange} type="email" placeholder="Email" required className={inputClass} />
-              <input name="phone" value={formState.phone} onChange={handleChange} type="tel" placeholder="Phone" className={inputClass} />
+
+            <div className="mb-4">
+              <input
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                type="email"
+                placeholder="Email"
+                required
+                className={inputClass}
+              />
             </div>
+
             <textarea
               name="message"
               value={formState.message}
@@ -116,12 +193,16 @@ export default function Contact() {
               required
               className={`${inputClass} resize-none mb-6`}
             />
+
             <button
               type="submit"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl text-white font-semibold bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] transition-all duration-300 shadow-lg shadow-[#7C3AED]/25 hover:shadow-[#7C3AED]/40 hover:scale-105"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:opacity-90 transition-all duration-300"
             >
               Send Message
-              <Send size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <Send
+                size={18}
+                className="group-hover:translate-x-0.5 transition-transform"
+              />
             </button>
           </motion.form>
         </div>

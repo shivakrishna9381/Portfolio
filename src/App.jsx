@@ -4,11 +4,9 @@ import About from './components/About'
 import Services from './components/Services'
 import Projects from './components/Projects'
 import Features from './components/Features'
-import Stats from './components/Stats'
 import Process from './components/Process'
 import TechStack from './components/TechStack'
 import Testimonials from './components/Testimonials'
-import CTA from './components/CTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgressBar from './components/ScrollProgressBar'
@@ -25,11 +23,9 @@ export default function App() {
       <Services />
       <Projects />
       <Features />
-      <Stats />
       <Process />
       <TechStack />
       <Testimonials />
-      <CTA />
       <Contact />
       <Footer />
       <ScrollProgressBar />

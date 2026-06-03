@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon, Github, Linkedin } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
 const navLinks = [
@@ -27,7 +27,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1200px] rounded-2xl transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[1200px] rounded-full transition-all duration-300 ${
         scrolled
           ? isDark
             ? 'bg-[#0F172A]/80 border border-[#7C3AED]/20 shadow-lg shadow-[#7C3AED]/5'
@@ -62,10 +62,10 @@ export default function Navbar() {
         </div>
 
         {/* Right side */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-xl transition-all duration-300 ${
+            className={`p-2 rounded-full transition-all duration-300 ${
               isDark
                 ? 'bg-white/5 hover:bg-white/10 text-gray-300'
                 : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
@@ -84,10 +84,28 @@ export default function Navbar() {
             </AnimatePresence>
           </button>
           <a
-            href="#contact"
-            className="px-5 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] transition-all duration-300 shadow-lg shadow-[#7C3AED]/25 hover:shadow-[#7C3AED]/40 hover:scale-105"
+            href="https://github.com/shivakrishna9381"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-2 rounded-full transition-all duration-300 ${
+              isDark
+                ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
           >
-            Let's Talk
+            <Github size={18} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/shiva-krishna-2-/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-2 rounded-full transition-all duration-300 ${
+              isDark
+                ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
+          >
+            <Linkedin size={18} />
           </a>
         </div>
 
@@ -95,13 +113,13 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-xl ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+            className={`p-2 rounded-full ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-xl ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+            className={`p-2 rounded-full ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -132,13 +150,34 @@ export default function Navbar() {
                   {link.name}
                 </motion.a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white text-center bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]"
-              >
-                Let's Talk
-              </a>
+              <div className="flex gap-3 mt-4 pt-4 border-t border-white/5">
+                <a
+                  href="https://github.com/shivakrishna9381"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className={`flex-1 py-2.5 rounded-full text-sm font-medium text-center transition-all duration-300 ${
+                    isDark
+                      ? 'text-gray-300 bg-white/5 hover:bg-white/10'
+                      : 'text-gray-600 bg-gray-100 hover:bg-gray-200'
+                  }`}
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/shiva-krishna-2-/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className={`flex-1 py-2.5 rounded-full text-sm font-medium text-center transition-all duration-300 ${
+                    isDark
+                      ? 'text-gray-300 bg-white/5 hover:bg-white/10'
+                      : 'text-gray-600 bg-gray-100 hover:bg-gray-200'
+                  }`}
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

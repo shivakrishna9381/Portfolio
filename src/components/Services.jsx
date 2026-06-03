@@ -52,7 +52,7 @@ function ServiceCard({ service, index, isDark }) {
           : 'bg-white border border-gray-100 hover:border-[#7C3AED]/20 hover:shadow-xl hover:shadow-gray-200/50'
       }`}
     >
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors ${
+      <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 transition-colors ${
         isDark ? 'bg-[#7C3AED]/10 group-hover:bg-[#7C3AED]/20' : 'bg-[#EDE9FE] group-hover:bg-[#7C3AED]/15'
       }`}>
         <service.icon className="text-[#7C3AED]" size={24} />
@@ -105,9 +105,9 @@ export default function Services() {
               </p>
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] transition-all duration-300 shadow-lg shadow-[#7C3AED]/25 hover:shadow-[#7C3AED]/40"
+                className="group inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:opacity-90 transition-all duration-300"
               >
-                Discuss your ideas
+                Discuss Your Ideas
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </motion.div>

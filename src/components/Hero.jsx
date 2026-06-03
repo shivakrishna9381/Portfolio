@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download, Sparkles, Code, Palette, Cpu } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
-const roles = ['Frontend Developer', 'UI/UX Designer', 'Machine Learning Engineer']
+const roles = ['FullStack Developer', 'UI/UX Designer', 'Machine Learning Engineer']
 
 function FloatingCard({ children, className, delay = 0 }) {
   return (
@@ -79,13 +79,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-heading)] leading-[1.1] mb-4 ${
+            className={`text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-heading)] leading-[1.1] mb-4 ${
               isDark ? 'text-white' : 'text-[#0F172A]'
             }`}
           >
-            Designing Digital{' '}
-            <span className="gradient-text">Products</span> That Feel{' '}
-            <span className="gradient-text">Effortless</span>
+            <>
+              Designing Digital{' '}
+              <span className="gradient-text">Experiences</span>{' '}
+              That Drive Real{' '}
+              <span className="gradient-text">Impact</span>
+            </>
           </motion.h1>
 
           <motion.div
@@ -117,21 +120,23 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-white font-semibold bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] transition-all duration-300 shadow-lg shadow-[#7C3AED]/25 hover:shadow-[#7C3AED]/40 hover:scale-105"
+              className="group inline-flex items-center gap-2 px-7 py-3 rounded-full text-white font-semibold text-sm bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:opacity-90 transition-all duration-300 border border-[#7C3AED]/30"
             >
-              Start a Project
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <span className="relative z-10 flex items-center gap-2">
+                Reach Out
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
             </a>
             <a
               href="/shivakrishnathogiti.pdf"
               download
-              className={`inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold transition-all duration-300 hover:scale-105 ${
+              className={`inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
                 isDark
-                  ? 'bg-white/5 border border-white/10 text-white hover:bg-white/10'
-                  : 'bg-gray-100 border border-gray-200 text-gray-800 hover:bg-gray-200'
+                  ? 'bg-white/10 border border-white/20 text-white hover:opacity-80'
+                  : 'bg-gray-200 border border-gray-300 text-gray-900 hover:opacity-80'
               }`}
             >
-              <Download size={18} />
+              <Download size={16} />
               Download CV
             </a>
           </motion.div>
@@ -154,7 +159,7 @@ export default function Hero() {
           {/* Floating cards - Medium size */}
           <FloatingCard
             delay={0.3}
-            className="absolute top-16 right-[-2px] z-30"
+            className="absolute top-[132px] right-[24px] z-30"
           >
             <div className={`p-4 rounded-xl shadow-lg ${isDark ? 'bg-[#1E293B] border border-white/5' : 'bg-white border border-gray-100 shadow-gray-200/40'}`}>
               <Code className="text-[#7C3AED] mb-2" size={22} />
@@ -165,7 +170,7 @@ export default function Hero() {
 
           <FloatingCard
             delay={0.5}
-            className="absolute top-16 left-[-2px] z-30"
+            className="absolute top-[132px] left-[54px] z-30"
           >
             <div className={`p-4 rounded-xl shadow-lg ${isDark ? 'bg-[#1E293B] border border-white/5' : 'bg-white border border-gray-100 shadow-gray-200/40'}`}>
               <Palette className="text-[#A78BFA] mb-2" size={22} />
@@ -176,7 +181,7 @@ export default function Hero() {
 
           <FloatingCard
             delay={0.7}
-            className="absolute bottom-20 right-[-2px] z-30"
+            className="absolute bottom-[100px] left-1/2 z-30 -translate-x-1/2"
           >
             <div className={`p-4 rounded-xl shadow-lg ${isDark ? 'bg-[#1E293B] border border-white/5' : 'bg-white border border-gray-100 shadow-gray-200/40'}`}>
               <Cpu className="text-[#7C3AED] mb-2" size={22} />
