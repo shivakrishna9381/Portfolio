@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ArrowUpRight, Github } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
 
 const projects = [
@@ -34,122 +34,112 @@ const projects = [
       'AI travel assistant that generates personalized itineraries, destination suggestions, and travel recommendations.',
     tags: ['React', 'OpenAI API', 'Node.js', 'AI', 'Tailwind CSS'],
     link: '#',
-    image:'/assets/tripadvisor.png',
+    image: '/assets/tripadvisor.png',
     color: '#DB2777',
   },
-  
 ]
 
 function ProjectCard({ project, index, isDark }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-120px' })
-  const isEven = index % 2 === 0
+  const cardRef = useRef(null)
+  const cardInView = useInView(cardRef, {
+    once: true,
+    margin: '-60px',
+  })
 
   return (
     <motion.article
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded-2xl border ${
+      ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
+      animate={cardInView ? { opacity: 1, y: 0 } : {}}
+      transition={{
+        duration: 0.65,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      whileHover={{ y: -6 }}
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl transition-shadow duration-500 ${
         isDark
-          ? 'border-white/10 bg-[#111827]/75 shadow-[0_24px_80px_rgba(0,0,0,0.35)]'
-          : 'border-slate-200/80 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.14)]'
+          ? 'bg-[#111827] shadow-[0_16px_45px_rgba(0,0,0,0.28)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.4)]'
+          : 'bg-white shadow-[0_14px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_22px_55px_rgba(15,23,42,0.14)]'
       }`}
     >
-      <div
-        className="absolute left-0 top-0 h-full w-1"
-        style={{ backgroundColor: project.color }}
-      />
+      <div className="relative h-48 overflow-hidden">
+        <motion.img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover"
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        />
 
-      <div className={`grid lg:grid-cols-2 ${isEven ? '' : 'lg:grid-flow-dense'}`}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className={`${isEven ? '' : 'lg:col-start-2'} relative overflow-hidden`}
-        >
-          <div className="relative h-[300px] sm:h-[360px] lg:h-full min-h-[430px] overflow-hidden">
-            <motion.img
-              src={project.image}
-              alt={project.title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              whileHover={{ scale: 1.04 }}
-            />
-            <div
-              className={`absolute inset-0 ${
-                isDark
-                  ? 'bg-gradient-to-t from-black/45 via-black/10 to-transparent'
-                  : 'bg-gradient-to-t from-black/25 via-transparent to-transparent'
-              }`}
-            />
-          </div>
-        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
 
-        <motion.div
-          initial={{ opacity: 0, x: isEven ? 35 : -35 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.75, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="flex min-h-[430px] flex-col justify-center p-7 sm:p-9 lg:p-12"
+        <span className="absolute right-4 top-4 rounded-full bg-black/45 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
+          {project.year}
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <span
+          className={`mb-3 text-xs font-bold uppercase tracking-[0.12em] ${
+            isDark ? 'text-slate-400' : 'text-slate-500'
+          }`}
         >
-          <div className="mb-5 flex items-center justify-between gap-4">
+          {project.category}
+        </span>
+
+        <h3
+          className={`mb-3 min-h-[56px] font-[family-name:var(--font-heading)] text-xl font-bold leading-7 ${
+            isDark ? 'text-white' : 'text-slate-950'
+          }`}
+        >
+          {project.title}
+        </h3>
+
+        <p
+          className={`mb-5 text-sm leading-6 ${
+            isDark ? 'text-slate-400' : 'text-slate-600'
+          }`}
+        >
+          {project.description}
+        </p>
+
+        <div className="mb-6 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
             <span
-              className={`rounded-full px-3 py-1 text-xs font-semibold ${
+              key={tag}
+              className={`rounded-md px-2.5 py-1 text-[10px] font-semibold ${
                 isDark
-                  ? 'bg-white/8 text-slate-300'
+                  ? 'bg-white/[0.06] text-slate-300'
                   : 'bg-slate-100 text-slate-600'
               }`}
             >
-              {project.category}
+              {tag}
             </span>
+          ))}
+        </div>
 
-            <span className={`text-sm font-semibold ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-              {project.year}
-            </span>
-          </div>
-
-          <h3
-            className={`mb-4 font-[family-name:var(--font-heading)] text-3xl font-bold leading-tight sm:text-4xl ${
-              isDark ? 'text-white' : 'text-slate-950'
-            }`}
-          >
-            {project.title}
-          </h3>
-
-          <p className={`mb-6 max-w-[520px] text-sm leading-7 sm:text-base ${
-            isDark ? 'text-slate-300' : 'text-slate-600'
-          }`}>
-            {project.description}
-          </p>
-
-          <div className="mb-7 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className={`rounded-full px-3 py-1.5 text-[11px] font-semibold transition-colors ${
-                  isDark
-                    ? 'bg-white/7 text-slate-300 group-hover:bg-white/10'
-                    : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
-                }`}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <motion.a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex w-fit items-center gap-2 rounded-lg bg-[#7C3AED] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(124,58,237,0.35)] transition-all hover:bg-[#6D28D9] hover:shadow-[0_16px_36px_rgba(124,58,237,0.45)]"
-          >
-            <Github size={15} />
+        <motion.a
+          href={project.link}
+          target={project.link === '#' ? undefined : '_blank'}
+          rel={project.link === '#' ? undefined : 'noopener noreferrer'}
+          whileTap={{ scale: 0.98 }}
+          className={`mt-auto flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors duration-300 ${
+            isDark
+              ? 'bg-white/[0.06] text-white hover:bg-white/[0.1]'
+              : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+          }`}
+        >
+          <span className="flex items-center gap-2">
+            <Github size={16} />
             View Project
-            <ExternalLink size={13} />
-          </motion.a>
-        </motion.div>
+          </span>
+
+          <ArrowUpRight
+            size={18}
+            className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+          />
+        </motion.a>
       </div>
     </motion.article>
   )
@@ -158,7 +148,10 @@ function ProjectCard({ project, index, isDark }) {
 export default function Projects() {
   const { isDark } = useTheme()
   const headerRef = useRef(null)
-  const headerInView = useInView(headerRef, { once: true, margin: '-100px' })
+  const headerInView = useInView(headerRef, {
+    once: true,
+    margin: '-100px',
+  })
 
   return (
     <section
@@ -168,43 +161,44 @@ export default function Projects() {
       }`}
     >
       <div
-        className={`absolute inset-0 pointer-events-none ${
+        className={`pointer-events-none absolute inset-0 ${
           isDark
             ? 'bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)]'
             : 'bg-[linear-gradient(to_right,rgba(15,23,42,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.05)_1px,transparent_1px)]'
         } bg-[size:52px_52px]`}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1180px] px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1240px] px-6 lg:px-10">
         <motion.div
           ref={headerRef}
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="mx-auto mb-16 max-w-4xl text-center lg:mb-20"
         >
-          
           <h2
-            className={`font-[family-name:var(--font-heading)] text-5xl font-black leading-[1.05] sm:text-6xl lg:text-7xl ${
+            className={`font-[family-name:var(--font-heading)] text-5xl font-black leading-[1.05] sm:text-6xl lg:text-5xl ${
               isDark ? 'text-white' : 'text-slate-950'
             }`}
           >
-            Featured{' '}
-            <span className="">
-              Projects
-            </span>
+            Featured Projects
           </h2>
 
-          <p className={`mx-auto mt-7 max-w-2xl text-base leading-8 sm:text-lg ${
-            isDark ? 'text-slate-400' : 'text-slate-600'
-          }`}>
+          <p
+            className={`mx-auto mt-7 max-w-2xl text-base leading-8 sm:text-lg ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
+            }`}
+          >
             A collection of AI, Machine Learning, Computer Vision, and Full Stack
             applications built to solve real-world problems and create meaningful
             digital experiences.
           </p>
         </motion.div>
 
-        <div className="space-y-10 lg:space-y-12">
+        <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}

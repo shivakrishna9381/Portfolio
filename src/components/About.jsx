@@ -66,7 +66,7 @@ export default function About() {
           className="mx-auto mb-12 max-w-3xl text-center lg:mb-16"
         >
           <h2
-            className={`font-[family-name:var(--font-heading)] text-4xl font-black leading-tight sm:text-5xl lg:text-6xl ${
+            className={`font-[family-name:var(--font-heading)] text-4xl font-black leading-tight sm:text-5xl lg:text-5xl ${
               isDark ? 'text-white' : 'text-slate-950'
             }`}
           >
@@ -76,14 +76,7 @@ export default function About() {
             </span>
           </h2>
 
-          <p
-            className={`mx-auto mt-5 max-w-2xl text-sm leading-7 sm:text-base ${
-              isDark ? 'text-slate-400' : 'text-slate-600'
-            }`}
-          >
-            A student developer building intelligent, user-friendly digital
-            products with AI, full-stack development, and clean interface design.
-          </p>
+          
         </motion.div>
 
         <div className="grid items-center gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">

@@ -6,9 +6,17 @@ import {
   Instagram,
   Linkedin,
   Sparkles,
-  Twitter,
 } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
+
+const BehanceIcon = ({ size = 17 }) => (
+  <span
+    aria-hidden="true"
+    style={{ fontSize: `${size}px`, fontWeight: 800, lineHeight: 1 }}
+  >
+    Be
+  </span>
+)
 
 const socialLinks = [
   { icon: Github, href: 'https://github.com/shivakrishna9381', label: 'GitHub' },
@@ -22,7 +30,11 @@ const socialLinks = [
     href: 'https://www.instagram.com/designerkrizz',
     label: 'Instagram',
   },
-  { icon: Twitter, href: '#', label: 'Twitter' },
+  {
+    icon: BehanceIcon,
+    href: 'https://www.behance.net/shivakrishna_f2',
+    label: 'Behance',
+  },
 ]
 
 const footerColumns = [

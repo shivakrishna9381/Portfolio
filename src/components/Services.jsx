@@ -11,12 +11,6 @@ const services = [
     tags: ['React', 'Tailwind', 'Node.js'],
   },
   {
-    icon: Smartphone,
-    title: 'App Development',
-    description: 'User-friendly, modern interfaces for mobile applications with clean, responsive UI for optimal user experience.',
-    tags: ['React Native', 'Flutter', 'UI/UX'],
-  },
-  {
     icon: Cpu,
     title: 'AI & Automation',
     description: 'Intelligent automation solutions powered by machine learning and NLP to streamline workflows and drive efficiency.',
