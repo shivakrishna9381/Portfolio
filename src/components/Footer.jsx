@@ -97,7 +97,7 @@ export default function Footer() {
       )}
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 sm:px-6 lg:px-10">
-        <div className="relative flex h-[92px] translate-y-5 items-end justify-center overflow-visible sm:h-[130px] lg:h-[165px]">
+        <div className="relative flex h-[92px] items-end justify-center overflow-visible sm:h-[130px] lg:h-[165px]">
           <motion.h2
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative -mt-4 overflow-hidden rounded-3xl border p-6 backdrop-blur-2xl sm:p-8 lg:p-10 ${
+          className={`relative -mt-1 overflow-hidden rounded-3xl border p-6 backdrop-blur-2xl sm:p-8 lg:p-10 ${
             isDark
               ? 'border-white/10 bg-[#080A0F]/86 shadow-[0_30px_100px_rgba(0,0,0,0.58)]'
               : 'border-white bg-white/88 shadow-[0_28px_90px_rgba(15,23,42,0.10)]'
