@@ -51,7 +51,7 @@ const footerColumns = [
     title: 'Services',
     links: [
       { name: 'Web Development', href: '#services' },
-      { name: 'App Development', href: '#services' },
+      { name: 'Ai & Automation', href: '#services' },
       { name: 'UI/UX Design', href: '#services' },
       { name: 'Brand Identity', href: '#services' },
     ],
