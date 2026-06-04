@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import {
-  ArrowUp,
   ArrowUpRight,
   Github,
   Instagram,
@@ -104,7 +103,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="select-none whitespace-nowrap font-[family-name:var(--font-heading)] text-[64px] font-bold leading-none sm:text-[104px] lg:text-[145px]"
+            className="select-none whitespace-nowrap font-[family-name:var(--font-heading)] text-[42px] font-bold leading-none sm:text-[104px] lg:text-[145px]"
             style={{
               backgroundImage: isDark
                 ? 'linear-gradient(180deg, rgba(255,255,255,0.34), rgba(168,85,247,0.18) 48%, rgba(255,255,255,0.06))'
@@ -148,7 +147,7 @@ export default function Footer() {
             }`}
           />
 
-          <div className="relative grid gap-10 lg:grid-cols-[1.35fr_1fr_1fr] lg:gap-12">
+          <div className="relative grid gap-10 lg:grid-cols-[1.35fr_auto_auto] lg:gap-10">
             <div>
               <div
                 className={`mb-6 flex h-11 w-11 items-center justify-center rounded-2xl ${
@@ -207,7 +206,11 @@ export default function Footer() {
                       key={social.label}
                       href={social.href}
                       target={social.href === '#' ? undefined : '_blank'}
-                      rel={social.href === '#' ? undefined : 'noopener noreferrer'}
+                      rel={
+                        social.href === '#'
+                          ? undefined
+                          : 'noopener noreferrer'
+                      }
                       whileHover={{ y: -2, scale: 1.05 }}
                       whileTap={{ scale: 0.96 }}
                       aria-label={social.label}
@@ -263,15 +266,9 @@ export default function Footer() {
               isDark ? 'border-white/10' : 'border-slate-200'
             }`}
           >
-            <p
-              className={`text-sm ${
-                isDark ? 'text-slate-500' : 'text-slate-500'
-              }`}
-            >
+            <p className="text-sm text-slate-500">
               &copy; 2026 Shiva Krishna Thogiti. All Rights Reserved.
             </p>
-
-            
           </div>
         </motion.div>
       </div>

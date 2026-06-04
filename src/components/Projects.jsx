@@ -33,7 +33,7 @@ const projects = [
     description:
       'AI travel assistant that generates personalized itineraries, destination suggestions, and travel recommendations.',
     tags: ['React', 'OpenAI API', 'Node.js', 'AI', 'Tailwind CSS'],
-    link: '#',
+    link: 'https://github.com/shivakrishna9381/TripverseAI',
     image: '/assets/tripadvisor.png',
     color: '#DB2777',
   },
