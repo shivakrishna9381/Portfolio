@@ -4,7 +4,6 @@
 dist
 node_modules/*.gyp
 node_modules/.bin
-public
 README.md
 LAYOUT_IMPROVEMENTS.md
 QUICK_START.md
