@@ -147,7 +147,7 @@ export default function Hero() {
           {/* Central character image */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.img
-              src={isDark ? "/assets/Herocardcharacter _dark.svg" : "/assets/Herocardcharacter.svg"}
+              src={isDark ? "/assets/Herocardcharacter_dark.svg" : "/assets/Herocardcharacter.svg"}
               alt="Hero Character"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
