@@ -173,7 +173,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/shivakrishnathogiti.pdf"
+              href="/SHIVAKRISHNA-CV-V.pdf"
               download
               className={`inline-flex items-center gap-2 rounded-full border px-7 py-3 text-sm font-semibold transition-all duration-300 ${
                 isDark
