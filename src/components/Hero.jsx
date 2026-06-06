@@ -16,6 +16,9 @@ const roles = [
   'Machine Learning Engineer',
 ]
 
+const resumeUrl = '/SHIVAKRISHNA-CV-V.pdf'
+const resumeFileName = 'SHIVAKRISHNA-CV-V.pdf'
+
 function FloatingCard({ children, className, delay = 0 }) {
   return (
     <motion.div
@@ -67,6 +70,34 @@ export default function Hero() {
     return () => clearTimeout(timeout)
   }, [text, isDeleting, roleIndex])
 
+  const handleResumeDownload = async (event) => {
+    event.preventDefault()
+
+    try {
+      const response = await fetch(resumeUrl)
+
+      if (!response.ok) {
+        window.open(resumeUrl, '_blank')
+        return
+      }
+
+      const blob = await response.blob()
+      const pdfBlob = new Blob([blob], { type: 'application/pdf' })
+      const url = window.URL.createObjectURL(pdfBlob)
+      const link = document.createElement('a')
+
+      link.href = url
+      link.download = resumeFileName
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+
+      window.URL.revokeObjectURL(url)
+    } catch {
+      window.open(resumeUrl, '_blank')
+    }
+  }
+
   const cardStyle = isDark
     ? 'border border-white/5 bg-[#1E293B]'
     : 'border border-gray-100 bg-white shadow-gray-200/40'
@@ -76,7 +107,6 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden pt-24"
     >
-      {/* Background gradient effects */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className={`absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full blur-3xl ${
@@ -98,7 +128,6 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-6 px-6 lg:grid-cols-2 lg:gap-12 lg:px-12">
-        {/* Left content */}
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,8 +202,9 @@ export default function Hero() {
             </a>
 
             <a
-              href="/SHIVAKRISHNA-CV-V.pdf"
-              download
+              href={resumeUrl}
+              download={resumeFileName}
+              onClick={handleResumeDownload}
               className={`inline-flex items-center gap-2 rounded-full border px-7 py-3 text-sm font-semibold transition-all duration-300 ${
                 isDark
                   ? 'border-white/20 bg-white/10 text-white hover:opacity-80'
@@ -187,9 +217,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Character and floating cards */}
         <div className="relative mt-4 h-[410px] w-full sm:h-[480px] lg:mt-0 lg:h-[600px]">
-          {/* Central character image */}
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.img
               src={
@@ -205,7 +233,6 @@ export default function Hero() {
             />
           </div>
 
-          {/* Web Development card */}
           <FloatingCard
             delay={0.3}
             className="absolute right-0 top-[60px] z-30 sm:right-[8%] sm:top-[90px] lg:right-[24px] lg:top-[132px]"
@@ -213,10 +240,7 @@ export default function Hero() {
             <div
               className={`w-[128px] rounded-xl p-2.5 shadow-lg sm:w-auto sm:p-3 lg:p-4 ${cardStyle}`}
             >
-              <Code
-                className="mb-1.5 text-[#7C3AED] lg:mb-2"
-                size={20}
-              />
+              <Code className="mb-1.5 text-[#7C3AED] lg:mb-2" size={20} />
 
               <h3
                 className={`mb-0.5 font-[family-name:var(--font-heading)] text-xs font-semibold sm:text-sm ${
@@ -236,7 +260,6 @@ export default function Hero() {
             </div>
           </FloatingCard>
 
-          {/* UI/UX card */}
           <FloatingCard
             delay={0.5}
             className="absolute left-0 top-[60px] z-30 sm:left-[8%] sm:top-[90px] lg:left-[54px] lg:top-[132px]"
@@ -244,10 +267,7 @@ export default function Hero() {
             <div
               className={`w-[128px] rounded-xl p-2.5 shadow-lg sm:w-auto sm:p-3 lg:p-4 ${cardStyle}`}
             >
-              <Palette
-                className="mb-1.5 text-[#A78BFA] lg:mb-2"
-                size={20}
-              />
+              <Palette className="mb-1.5 text-[#A78BFA] lg:mb-2" size={20} />
 
               <h3
                 className={`mb-0.5 font-[family-name:var(--font-heading)] text-xs font-semibold sm:text-sm ${
@@ -267,7 +287,6 @@ export default function Hero() {
             </div>
           </FloatingCard>
 
-          {/* AI and ML card */}
           <FloatingCard
             delay={0.7}
             className="absolute inset-x-0 bottom-[32px] z-30 flex justify-center sm:bottom-[55px] lg:bottom-[100px]"
@@ -275,10 +294,7 @@ export default function Hero() {
             <div
               className={`w-[128px] rounded-xl p-2.5 shadow-lg sm:w-auto sm:p-3 lg:p-4 ${cardStyle}`}
             >
-              <Cpu
-                className="mb-1.5 text-[#7C3AED] lg:mb-2"
-                size={20}
-              />
+              <Cpu className="mb-1.5 text-[#7C3AED] lg:mb-2" size={20} />
 
               <h3
                 className={`mb-0.5 font-[family-name:var(--font-heading)] text-xs font-semibold sm:text-sm ${
@@ -298,7 +314,6 @@ export default function Hero() {
             </div>
           </FloatingCard>
 
-          {/* Character shadow */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[245px] w-[190px] -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-gradient-to-b from-transparent to-gray-400/10 blur-2xl sm:h-[290px] sm:w-[230px] lg:h-[320px] lg:w-[260px]" />
         </div>
       </div>
