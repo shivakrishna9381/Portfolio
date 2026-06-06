@@ -16,8 +16,8 @@ const roles = [
   'Machine Learning Engineer',
 ]
 
-const resumeUrl = '/SHIVAKRISHNA-CV-V.pdf'
 const resumeFileName = 'SHIVAKRISHNA-CV-V.pdf'
+const resumeUrl = `/assets/${resumeFileName}`
 
 function FloatingCard({ children, className, delay = 0 }) {
   return (
@@ -77,12 +77,19 @@ export default function Hero() {
       const response = await fetch(resumeUrl)
 
       if (!response.ok) {
-        window.open(resumeUrl, '_blank')
+        alert('Resume PDF not found. Please check the file name and path.')
         return
       }
 
-      const blob = await response.blob()
-      const pdfBlob = new Blob([blob], { type: 'application/pdf' })
+      const buffer = await response.arrayBuffer()
+      const signature = new TextDecoder().decode(buffer.slice(0, 4))
+
+      if (signature !== '%PDF') {
+        alert('The resume file is not a valid PDF. Please upload a real PDF file.')
+        return
+      }
+
+      const pdfBlob = new Blob([buffer], { type: 'application/pdf' })
       const url = window.URL.createObjectURL(pdfBlob)
       const link = document.createElement('a')
 
@@ -94,7 +101,7 @@ export default function Hero() {
 
       window.URL.revokeObjectURL(url)
     } catch {
-      window.open(resumeUrl, '_blank')
+      window.open(resumeUrl, '_blank', 'noopener,noreferrer')
     }
   }
 
